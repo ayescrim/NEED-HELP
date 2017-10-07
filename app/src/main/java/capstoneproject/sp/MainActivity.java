@@ -1,0 +1,185 @@
+package capstoneproject.sp;
+
+import android.content.Intent;
+import android.support.v7.app.AlertDialog;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.text.TextUtils;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.inputmethod.EditorInfo;
+import android.widget.AdapterView;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ListView;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import com.google.firebase.FirebaseException;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class MainActivity extends AppCompatActivity {
+
+    //constants
+    public static final String RECIPE_NAME = "recipeName";
+    public static final String RECIPE_ID = "recipeID";
+
+    //declaration of widgets
+    EditText recName;
+    EditText recDesc;
+    Button addRec;
+
+    //create database reference object
+    DatabaseReference databaseRecipes;
+    //defining the listview
+    ListView listViewRecipes;
+    //needed list to contain values onstart
+    List<Recipe> recipeList;
+
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        //gets database references
+        databaseRecipes = FirebaseDatabase.getInstance().getReference("recipes");
+
+// setting values of the variables
+        recName = (EditText)findViewById(R.id.recName);
+        recDesc = (EditText)findViewById(R.id.recDesc);
+        addRec = (Button)findViewById(R.id.addRec);
+
+        listViewRecipes = (ListView)findViewById(R.id.listViewRecipes);
+        //initializing the recipe list
+        recipeList = new ArrayList<>();
+//when button is clicked shit happens
+        addRec.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                addRecipe();
+            }
+        });
+
+        //long press para mag prompt delete
+        listViewRecipes.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
+
+                Recipe recipe = recipeList.get(i);
+
+                addDeleteThis(recipe.getRecipeID(), recipe.getRecipeName());
+                return false;
+            }
+        });
+
+        //clickable na ang nasa listahan pra maedit :D
+        listViewRecipes.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Recipe recipe = recipeList.get(i);
+                //redirects to the AddIngredient Java
+                Intent intent = new Intent(getApplicationContext(), AddIngredient.class);
+
+                //adds the constants
+                intent.putExtra(RECIPE_ID, recipe.getRecipeID());
+                intent.putExtra(RECIPE_NAME, recipe.getRecipeName());
+
+                startActivity(intent);
+            }
+        });
+
+
+    }
+    //rightclick -> generate -> overide methods -> onstart..overide on start for the listview to appear
+    @Override
+    protected void onStart() {
+        super.onStart();
+        //attached event value listener
+        databaseRecipes.addValueEventListener(new ValueEventListener() {
+            @Override
+
+            //executes everytime something changes in the database
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                //clear previous entry from old execution
+                recipeList.clear();
+                //to get all the values in firebase
+                for (DataSnapshot recipeSnapshot : dataSnapshot.getChildren()) {
+                    Recipe recipe = recipeSnapshot.getValue(Recipe.class);
+
+                    recipeList.add(recipe);
+                }
+
+                RecipeList adapter = new RecipeList(MainActivity.this, recipeList);
+                listViewRecipes.setAdapter(adapter);
+            }
+            //executes when there is an error
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+    }
+
+    //eto ung nirurun pag clinick ung button
+    private void addRecipe(){
+        String name = recName.getText().toString().trim();
+        String description = recDesc.getText().toString();
+//checking kung my tanga na di nag input ng kahit anu pinindot lang ung add
+        if(!TextUtils.isEmpty(name)){
+            //yes my utak sya kaya gumana... creating unique string inside "recipes" when push and get to get the ID stored as string
+            String id = databaseRecipes.push().getKey();
+            //create new
+            Recipe recipe = new Recipe(id,name,description);
+            //store to firebase
+            databaseRecipes.child(id).setValue(recipe);
+
+            //notifications
+            Toast.makeText(this, "Successfully Added", Toast.LENGTH_LONG).show();
+        }else{
+            Toast.makeText(this, "Input Field Required", Toast.LENGTH_LONG).show();
+        }
+    }
+
+    private void addDeleteThis(final String recipeID, String recipeName){
+        AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
+
+        LayoutInflater inflater = getLayoutInflater();
+
+        final View addDeleteDialog = inflater.inflate(R.layout.proc_del_dialog, null);
+
+        dialogBuilder.setView(addDeleteDialog);
+
+        final Button deleteButton = (Button) addDeleteDialog.findViewById(R.id.deleteButton);
+
+        dialogBuilder.setTitle("Add procedure or delete "+recipeName+"?");
+
+        AlertDialog alertDialog = dialogBuilder.create();
+        alertDialog.show();
+
+        deleteButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                deleteRecipe(recipeID);
+            }
+        });
+    }
+
+    private void deleteRecipe(String recipeID) {
+        DatabaseReference drRecipe = FirebaseDatabase.getInstance().getReference("recipes").child(recipeID);
+        DatabaseReference drRecIng = FirebaseDatabase.getInstance().getReference("recipeIngredients").child(recipeID);
+
+        drRecipe.removeValue();
+        drRecIng.removeValue();
+
+        Toast.makeText(this, "Successfully Deleted",Toast.LENGTH_LONG).show();
+    }
+
+}

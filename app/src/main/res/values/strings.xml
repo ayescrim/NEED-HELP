@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">SP</string>
+
+    <array name="measures">
+        <item>pinch</item>
+        <item>tsp</item>
+        <item>tbsp</item>
+    </array>
+
+    <array name="tempfood">
+        <item>salt</item>
+        <item>sugar</item>
+    </array>
+
+</resources>

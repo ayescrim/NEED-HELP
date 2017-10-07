@@ -1,0 +1,373 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="capstoneproject.sp.NutritionalFacts"
+    tools:layout_editor_absoluteY="81dp"
+    tools:layout_editor_absoluteX="0dp">
+
+    <TextView
+        android:id="@+id/nutriFacts"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nutritional Facts"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        tools:layout_editor_absoluteY="16dp"
+        tools:layout_editor_absoluteX="13dp" />
+
+    //serve size
+
+    <TextView
+        android:id="@+id/servSize"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/nutriFacts"
+        android:text="Serving Size"
+        tools:layout_editor_absoluteY="43dp"
+        tools:layout_editor_absoluteX="13dp" />
+
+    <TextView
+        android:id="@+id/serveValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0g"
+        android:layout_marginStart="8dp"
+        tools:layout_editor_absoluteY="43dp"
+        tools:layout_editor_absoluteX="97dp" />
+
+    <ImageView
+        android:id="@+id/line1"
+        android:layout_width="356dp"
+        android:layout_height="20dp"
+        android:background="@drawable/black_bar"
+        android:layout_marginStart="13dp"
+        android:layout_marginEnd="13dp"
+        tools:layout_editor_absoluteY="61dp"
+        tools:layout_editor_absoluteX="13dp" />
+
+    <TextView
+        android:id="@+id/labelServe"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/line1"
+        android:text="Amount Per Serving "
+        tools:layout_editor_absoluteY="82dp"
+        tools:layout_editor_absoluteX="13dp" />
+
+    <ImageView
+        android:id="@+id/line2"
+        android:layout_width="356dp"
+        android:layout_height="1dp"
+        android:background="@drawable/black_bar"
+        android:layout_marginStart="13dp"
+        android:layout_marginEnd="13dp"
+        tools:layout_editor_absoluteY="100dp"
+        tools:layout_editor_absoluteX="13dp" />
+
+    //calories
+
+    <TextView
+        android:id="@+id/calories"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/labelServe"
+        android:text="Calories"
+        tools:layout_editor_absoluteY="102dp"
+        tools:layout_editor_absoluteX="13dp" />
+
+    <TextView
+        android:id="@+id/calValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0g"
+        android:layout_marginStart="6dp"
+        tools:layout_editor_absoluteY="102dp"
+        tools:layout_editor_absoluteX="70dp" />
+
+    //calories from fat
+
+    <TextView
+        android:id="@+id/calFromFat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/calories"
+        android:layout_marginEnd="5dp"
+        android:text="Calories From Fat"
+        tools:layout_editor_absoluteY="102dp"
+        tools:layout_editor_absoluteX="202dp" />
+
+    <TextView
+        android:id="@+id/calFromFatValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0g"
+        android:layout_marginEnd="36dp"
+        tools:layout_editor_absoluteY="102dp"
+        tools:layout_editor_absoluteX="317dp" />
+
+    <ImageView
+        android:id="@+id/line3"
+        android:layout_width="356dp"
+        android:layout_height="4dp"
+        android:background="@drawable/black_bar"
+        android:layout_marginStart="13dp"
+        android:layout_marginEnd="13dp"
+        tools:layout_editor_absoluteY="120dp"
+        tools:layout_editor_absoluteX="13dp" />
+
+    <TextView
+        android:id="@+id/dailyVal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="% Daily Value %"
+        android:layout_marginEnd="3dp"
+        tools:layout_editor_absoluteY="125dp"
+        tools:layout_editor_absoluteX="273dp" />
+
+    <ImageView
+        android:id="@+id/line4"
+        android:layout_width="356dp"
+        android:layout_height="1dp"
+        android:background="@drawable/black_bar"
+        android:layout_marginStart="13dp"
+        android:layout_marginEnd="13dp"
+        tools:layout_editor_absoluteY="143dp"
+        tools:layout_editor_absoluteX="13dp" />
+
+    //fat
+
+    <TextView
+        android:id="@+id/totalFat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Total Fat"
+        tools:layout_editor_absoluteY="145dp"
+        tools:layout_editor_absoluteX="13dp" />
+
+    <TextView
+        android:id="@+id/fatValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0g"
+        android:layout_marginStart="4dp"
+        tools:layout_editor_absoluteY="145dp"
+        tools:layout_editor_absoluteX="73dp" />
+
+    <ImageView
+        android:id="@+id/line5"
+        android:layout_width="356dp"
+        android:layout_height="1dp"
+        android:background="@drawable/black_bar"
+        android:layout_marginStart="13dp"
+        android:layout_marginEnd="13dp"
+        tools:layout_editor_absoluteY="163dp"
+        tools:layout_editor_absoluteX="13dp" />
+
+    //carbohydrate
+
+    <TextView
+        android:id="@+id/carb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Total Carbohydrate"
+        tools:layout_editor_absoluteY="165dp"
+        tools:layout_editor_absoluteX="13dp" />
+
+    <TextView
+        android:id="@+id/carbValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0g"
+        android:layout_marginStart="4dp"
+        tools:layout_editor_absoluteY="165dp"
+        tools:layout_editor_absoluteX="138dp" />
+
+    <ImageView
+        android:id="@+id/line6"
+        android:layout_width="356dp"
+        android:layout_height="1dp"
+        android:background="@drawable/black_bar"
+        android:layout_marginStart="13dp"
+        android:layout_marginEnd="13dp"
+        tools:ignore="ContentDescription"
+        tools:layout_editor_absoluteY="183dp"
+        tools:layout_editor_absoluteX="13dp" />
+
+    //dietary fiber
+
+    <TextView
+        android:id="@+id/dietFiber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Dietary Fiber"
+        android:layout_marginEnd="9dp"
+        tools:layout_editor_absoluteY="185dp"
+        tools:layout_editor_absoluteX="47dp" />
+
+    <TextView
+        android:id="@+id/dietaryFiberValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0g"
+        tools:layout_editor_absoluteY="185dp"
+        tools:layout_editor_absoluteX="130dp" />
+
+    <ImageView
+        android:id="@+id/line7"
+        android:layout_width="322dp"
+        android:layout_height="1dp"
+        android:background="@drawable/black_bar"
+        tools:layout_editor_absoluteY="203dp"
+        tools:layout_editor_absoluteX="47dp" />
+
+    //protein
+
+    <TextView
+        android:id="@+id/protein"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Protein"
+        tools:layout_editor_absoluteY="205dp"
+        tools:layout_editor_absoluteX="13dp" />
+
+    <TextView
+        android:id="@+id/proteinValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0g"
+        tools:layout_editor_absoluteY="205dp"
+        tools:layout_editor_absoluteX="62dp" />
+
+    <ImageView
+        android:id="@+id/line8"
+        android:layout_width="356dp"
+        android:layout_height="20dp"
+        android:background="@drawable/black_bar"
+        android:layout_marginStart="13dp"
+        android:layout_marginEnd="13dp"
+        tools:layout_editor_absoluteY="223dp"
+        tools:layout_editor_absoluteX="13dp" />
+
+    //vitA
+
+    <TextView
+        android:id="@+id/vitA"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Vitamin A"
+        tools:layout_editor_absoluteY="244dp"
+        tools:layout_editor_absoluteX="13dp" />
+
+    <TextView
+        android:id="@+id/vitAValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0g"
+        android:layout_marginStart="4dp"
+        tools:layout_editor_absoluteY="244dp"
+        tools:layout_editor_absoluteX="77dp" />
+
+    <ImageView
+        android:id="@+id/line9"
+        android:layout_width="356dp"
+        android:layout_height="1dp"
+        android:background="@drawable/black_bar"
+        android:layout_marginStart="13dp"
+        android:layout_marginEnd="13dp"
+        tools:layout_editor_absoluteY="262dp"
+        tools:layout_editor_absoluteX="13dp" />
+
+    //vitC
+
+    <TextView
+        android:id="@+id/vitC"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Vitamin C"
+        tools:layout_editor_absoluteY="264dp"
+        tools:layout_editor_absoluteX="13dp" />
+
+    <TextView
+        android:id="@+id/vitCValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0g"
+        tools:layout_editor_absoluteY="264dp"
+        tools:layout_editor_absoluteX="77dp" />
+
+    <ImageView
+        android:id="@+id/line10"
+        android:layout_width="356dp"
+        android:layout_height="1dp"
+        android:background="@drawable/black_bar"
+        android:layout_marginStart="13dp"
+        android:layout_marginEnd="13dp"
+        tools:layout_editor_absoluteY="282dp"
+        tools:layout_editor_absoluteX="13dp" />
+
+    //calcium
+
+    <TextView
+        android:id="@+id/calcium"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Calcium"
+        tools:layout_editor_absoluteY="284dp"
+        tools:layout_editor_absoluteX="13dp" />
+
+    <TextView
+        android:id="@+id/calciumValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0g"
+        tools:layout_editor_absoluteY="284dp"
+        tools:layout_editor_absoluteX="69dp" />
+
+    <ImageView
+        android:id="@+id/line11"
+        android:layout_width="356dp"
+        android:layout_height="1dp"
+        android:background="@drawable/black_bar"
+        android:layout_marginStart="13dp"
+        android:layout_marginEnd="13dp"
+        tools:layout_editor_absoluteY="302dp"
+        tools:layout_editor_absoluteX="13dp" />
+
+    <TextView
+        android:id="@+id/iron"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Iron"
+        tools:layout_editor_absoluteY="304dp"
+        tools:layout_editor_absoluteX="13dp" />
+
+    <TextView
+        android:id="@+id/ironValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0g"
+        android:layout_marginEnd="6dp"
+        tools:layout_editor_absoluteY="304dp"
+        tools:layout_editor_absoluteX="41dp" />
+
+    <ImageView
+        android:id="@+id/line12"
+        android:layout_width="356dp"
+        android:layout_height="1dp"
+        android:background="@drawable/black_bar"
+        android:layout_marginStart="13dp"
+        android:layout_marginEnd="13dp"
+        tools:layout_editor_absoluteY="322dp"
+        tools:layout_editor_absoluteX="13dp" />
+
+    <Button
+        android:id="@+id/back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Back"
+        tools:layout_editor_absoluteX="275dp"
+        tools:layout_editor_absoluteY="346dp" />
+
+</android.support.constraint.ConstraintLayout>
