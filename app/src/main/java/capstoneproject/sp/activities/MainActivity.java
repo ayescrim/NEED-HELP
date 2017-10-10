@@ -182,6 +182,9 @@ public class MainActivity extends AppCompatActivity {
             //yes my utak sya kaya gumana... creating unique string inside "recipes" when push and get to get the ID stored as string
             String id = databaseRecipes.push().getKey();
             //create new
+
+
+
             Recipe recipe = new Recipe(id, name, coreingredient, coreingredientpart);
             //store to firebase
             databaseRecipes.child(id).setValue(recipe);
@@ -231,7 +234,7 @@ public class MainActivity extends AppCompatActivity {
         DatabaseReference drRecipe = FirebaseDatabase.getInstance().getReference("recipes").child(recipeID);
         DatabaseReference drRecIng = FirebaseDatabase.getInstance().getReference("recipeIngredients").child(recipeID);
         DatabaseReference drRecProc = FirebaseDatabase.getInstance().getReference("recipeProcedures").child(recipeID);
-        //-NOTICE-deleting of procedures still not added yet
+
 
         drRecipe.removeValue();
         drRecIng.removeValue();

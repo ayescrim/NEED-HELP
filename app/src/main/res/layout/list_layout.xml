@@ -3,23 +3,63 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/textViewName"
-        android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Name" />
+        android:orientation="horizontal">
 
-    <TextView
-        android:id="@+id/textViewCoreIngredient"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="core ingredient"
-        android:textAppearance="@style/Base.TextAppearance.AppCompat.Small" />
+        <TextView
+            android:id="@+id/textViewName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Name"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
 
-    <TextView
-        android:id="@+id/textViewCoreIngredientPart"
+    </LinearLayout>
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="core ingredient part" />
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.07"
+            android:text="Core Ingredient:" />
+
+        <TextView
+            android:id="@+id/textViewCoreIngredient"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.26"
+            android:textStyle="bold"
+            android:text="core ingredient"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.42"
+            android:text="Core Ingredient part:" />
+
+        <TextView
+            android:id="@+id/textViewCoreIngredientPart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="4.29"
+            android:textStyle="bold"
+            android:text="core ingredient part" />
+    </LinearLayout>
+
 </LinearLayout>

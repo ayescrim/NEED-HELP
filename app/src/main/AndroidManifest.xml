@@ -18,7 +18,8 @@
         </activity>
         <activity android:name=".activities.AddIngredientActivity" />
         <activity android:name=".activities.NutritionalFactsActivity" />
-        <activity android:name=".activities.AddProcedureActivity"></activity>
+        <activity android:name=".activities.AddProcedureActivity" />
+        <activity android:name=".activities.ShowAllRecipeActivity"></activity>
     </application>
 
 </manifest>

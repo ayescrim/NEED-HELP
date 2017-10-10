@@ -17,10 +17,11 @@ public class Recipe {
         this.recipeID = recipeID;
         this.recipeName = recipeName;
         this.recipeCoreIngredient = recipeCoreIngredient;
-        this.recipeCoreIngredient = recipeCoreIngredientPart;
+        this.recipeCoreIngredientPart = recipeCoreIngredientPart;
     }
 
     //rightclick -> generate -> getters (used daw while reading the values)
+
     public String getRecipeID() {
         return recipeID;
     }
@@ -32,6 +33,7 @@ public class Recipe {
     public String getRecipeCoreIngredient() {
         return recipeCoreIngredient;
     }
+
     public String getRecipeCoreIngredientPart() {
         return recipeCoreIngredientPart;
     }
