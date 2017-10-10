@@ -81,6 +81,7 @@ public class MainActivity extends AppCompatActivity {
                 Recipe recipe = recipeList.get(i);
 
                 addDeleteThis(recipe.getRecipeID(), recipe.getRecipeName());
+
                 return true;
             }
         });
@@ -229,10 +230,12 @@ public class MainActivity extends AppCompatActivity {
     private void deleteRecipe(String recipeID) {
         DatabaseReference drRecipe = FirebaseDatabase.getInstance().getReference("recipes").child(recipeID);
         DatabaseReference drRecIng = FirebaseDatabase.getInstance().getReference("recipeIngredients").child(recipeID);
+        DatabaseReference drRecProc = FirebaseDatabase.getInstance().getReference("recipeProcedures").child(recipeID);
         //-NOTICE-deleting of procedures still not added yet
 
         drRecipe.removeValue();
         drRecIng.removeValue();
+        drRecProc.removeValue();
 
         Toast.makeText(this, "Successfully Deleted", Toast.LENGTH_LONG).show();
     }
