@@ -1,4 +1,4 @@
-package capstoneproject.sp;
+package capstoneproject.sp.activities;
 
 import android.content.Intent;
 import android.support.v7.app.AlertDialog;
@@ -7,15 +7,12 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.inputmethod.EditorInfo;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.firebase.FirebaseException;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -24,6 +21,10 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import capstoneproject.sp.R;
+import capstoneproject.sp.model.Recipe;
+import capstoneproject.sp.adapter.RecipeListAdapter;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -85,8 +86,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Recipe recipe = recipeList.get(i);
-                //redirects to the AddIngredient Java
-                Intent intent = new Intent(getApplicationContext(), AddIngredient.class);
+                //redirects to the AddIngredientActivity Java
+                Intent intent = new Intent(getApplicationContext(), AddIngredientActivity.class);
 
                 //adds the constants
                 intent.putExtra(RECIPE_ID, recipe.getRecipeID());
@@ -117,7 +118,7 @@ public class MainActivity extends AppCompatActivity {
                     recipeList.add(recipe);
                 }
 
-                RecipeList adapter = new RecipeList(MainActivity.this, recipeList);
+                RecipeListAdapter adapter = new RecipeListAdapter(MainActivity.this, recipeList);
                 listViewRecipes.setAdapter(adapter);
             }
             //executes when there is an error

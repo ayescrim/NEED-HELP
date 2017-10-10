@@ -1,4 +1,4 @@
-package capstoneproject.sp;
+package capstoneproject.sp.adapter;
 
 import android.app.Activity;
 import android.support.annotation.NonNull;
@@ -11,13 +11,16 @@ import android.widget.TextView;
 
 import java.util.List;
 
-public class ProcedureList extends ArrayAdapter<Procedure> {
+import capstoneproject.sp.R;
+import capstoneproject.sp.model.Procedure;
+
+public class ProcedureListAdapter extends ArrayAdapter<Procedure> {
 
     private Activity context;
 
     List<Procedure> procedureList;
 
-    public ProcedureList(Activity context, List<Procedure> procedureList){
+    public ProcedureListAdapter(Activity context, List<Procedure> procedureList){
         super(context, R.layout.procedure_layout, procedureList);
         this.context = context;
         this.procedureList = procedureList;

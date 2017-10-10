@@ -1,4 +1,4 @@
-package capstoneproject.sp;
+package capstoneproject.sp.activities;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -6,7 +6,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-public class NutritionalFacts extends AppCompatActivity {
+import capstoneproject.sp.R;
+
+public class NutritionalFactsActivity extends AppCompatActivity {
 
     TextView serveValue;
     TextView calValue;
