@@ -1,77 +1,171 @@
 package capstoneproject.sp.model;
 
 
-public class NutritionalFacts {
-    private String nutriServingSize;
-    private String nutriCalories;
-    private String nutriCaloriesFromFat;
-    private String nutriFat;
-    private String nutriCarbohydrates;
-    private String nutriDietaryFiber;
-    private String nutriProtein;
-    private String nutriVitaminA;
-    private String nutriVitaminC;
-    private String nutriCalcium;
-    private String nutriIron;
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public class NutritionalFacts implements Parcelable {
+    private String servingSize;
+    private String calories;
+    private String caloriesFromFat;
+    private String fat;
+    private String carbohydrates;
+    private String dietaryFiber;
+    private String protein;
+    private String vitaminA;
+    private String vitaminC;
+    private String calcium;
+    private String iron;
 
     public NutritionalFacts() {
     }
 
     public NutritionalFacts(String nutriServingSize, String nutriCalories, String nutriCaloriesFromFat, String nutriFat, String nutriCarbohydrates, String nutriDietaryFiber, String nutriProtein, String nutriVitaminA, String nutriVitaminC, String nutriCalcium, String nutriIron) {
-        this.nutriServingSize = nutriServingSize;
-        this.nutriCalories = nutriCalories;
-        this.nutriCaloriesFromFat = nutriCaloriesFromFat;
-        this.nutriFat = nutriFat;
-        this.nutriCarbohydrates = nutriCarbohydrates;
-        this.nutriDietaryFiber = nutriDietaryFiber;
-        this.nutriProtein = nutriProtein;
-        this.nutriVitaminA = nutriVitaminA;
-        this.nutriVitaminC = nutriVitaminC;
-        this.nutriCalcium = nutriCalcium;
-        this.nutriIron = nutriIron;
+        this.servingSize = nutriServingSize;
+        this.calories = nutriCalories;
+        this.caloriesFromFat = nutriCaloriesFromFat;
+        this.fat = nutriFat;
+        this.carbohydrates = nutriCarbohydrates;
+        this.dietaryFiber = nutriDietaryFiber;
+        this.protein = nutriProtein;
+        this.vitaminA = nutriVitaminA;
+        this.vitaminC = nutriVitaminC;
+        this.calcium = nutriCalcium;
+        this.iron = nutriIron;
     }
 
-    public String getNutriServingSize() {
-        return nutriServingSize;
+    public void setServingSize(String servingSize) {
+        this.servingSize = servingSize;
     }
 
-    public String getNutriCalories() {
-        return nutriCalories;
+    public void setCalories(String calories) {
+        this.calories = calories;
     }
 
-    public String getNutriCaloriesFromFat() {
-        return nutriCaloriesFromFat;
+    public void setCaloriesFromFat(String caloriesFromFat) {
+        this.caloriesFromFat = caloriesFromFat;
     }
 
-    public String getNutriFat() {
-        return nutriFat;
+    public void setFat(String fat) {
+        this.fat = fat;
     }
 
-    public String getNutriCarbohydrates() {
-        return nutriCarbohydrates;
+    public void setCarbohydrates(String carbohydrates) {
+        this.carbohydrates = carbohydrates;
     }
 
-    public String getNutriDietaryFiber() {
-        return nutriDietaryFiber;
+    public void setDietaryFiber(String dietaryFiber) {
+        this.dietaryFiber = dietaryFiber;
     }
 
-    public String getNutriProtein() {
-        return nutriProtein;
+    public void setProtein(String protein) {
+        this.protein = protein;
     }
 
-    public String getNutriVitaminA() {
-        return nutriVitaminA;
+    public void setVitaminA(String vitaminA) {
+        this.vitaminA = vitaminA;
     }
 
-    public String getNutriVitaminC() {
-        return nutriVitaminC;
+    public void setVitaminC(String vitaminC) {
+        this.vitaminC = vitaminC;
     }
 
-    public String getNutriCalcium() {
-        return nutriCalcium;
+    public void setCalcium(String calcium) {
+        this.calcium = calcium;
     }
 
-    public String getNutriIron() {
-        return nutriIron;
+    public void setIron(String iron) {
+        this.iron = iron;
     }
+
+    public String getServingSize() {
+        return servingSize;
+    }
+
+    public String getCalories() {
+        return calories;
+    }
+
+    public String getCaloriesFromFat() {
+        return caloriesFromFat;
+    }
+
+    public String getFat() {
+        return fat;
+    }
+
+    public String getCarbohydrates() {
+        return carbohydrates;
+    }
+
+    public String getDietaryFiber() {
+        return dietaryFiber;
+    }
+
+    public String getProtein() {
+        return protein;
+    }
+
+    public String getVitaminA() {
+        return vitaminA;
+    }
+
+    public String getVitaminC() {
+        return vitaminC;
+    }
+
+    public String getCalcium() {
+        return calcium;
+    }
+
+    public String getIron() {
+        return iron;
+    }
+
+    protected NutritionalFacts(Parcel in) {
+        servingSize = in.readString();
+        calories = in.readString();
+        caloriesFromFat = in.readString();
+        fat = in.readString();
+        carbohydrates = in.readString();
+        dietaryFiber = in.readString();
+        protein = in.readString();
+        vitaminA = in.readString();
+        vitaminC = in.readString();
+        calcium = in.readString();
+        iron = in.readString();
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(servingSize);
+        dest.writeString(calories);
+        dest.writeString(caloriesFromFat);
+        dest.writeString(fat);
+        dest.writeString(carbohydrates);
+        dest.writeString(dietaryFiber);
+        dest.writeString(protein);
+        dest.writeString(vitaminA);
+        dest.writeString(vitaminC);
+        dest.writeString(calcium);
+        dest.writeString(iron);
+    }
+
+    @SuppressWarnings("unused")
+    public static final Parcelable.Creator<NutritionalFacts> CREATOR = new Parcelable.Creator<NutritionalFacts>() {
+        @Override
+        public NutritionalFacts createFromParcel(Parcel in) {
+            return new NutritionalFacts(in);
+        }
+
+        @Override
+        public NutritionalFacts[] newArray(int size) {
+            return new NutritionalFacts[size];
+        }
+    };
 }

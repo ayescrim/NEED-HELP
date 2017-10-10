@@ -7,6 +7,8 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import capstoneproject.sp.R;
+import capstoneproject.sp.keys.BundleKey;
+import capstoneproject.sp.model.NutritionalFacts;
 
 public class NutritionalFactsActivity extends AppCompatActivity implements View.OnClickListener{
 
@@ -24,12 +26,22 @@ public class NutritionalFactsActivity extends AppCompatActivity implements View.
 
     Button btnBack;
 
+    private NutritionalFacts facts;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_nutritional_facts);
         initViews();
         btnBack.setOnClickListener(this);
+
+
+        //eto ung galing sa kabilang activity ipapasa mo
+        facts = getIntent().getParcelableExtra(BundleKey.NUTRIFACTS);
+
+        if (facts != null) {
+            setNutritionalFacts(facts);
+        }
     }
 
     private void initViews() {
@@ -45,6 +57,19 @@ public class NutritionalFactsActivity extends AppCompatActivity implements View.
         tvCalcium = (TextView) findViewById(R.id.calciumValue);
         tvIron = (TextView) findViewById(R.id.ironValue);
         btnBack = (Button) findViewById(R.id.back);
+    }
+
+    private void setNutritionalFacts(NutritionalFacts facts) {
+        tvServe.setText(facts.getServingSize());
+        tvCal.setText(facts.getCalories());
+        tvCalFromFat.setText(facts.getCaloriesFromFat());
+        tvFat.setText(facts.getFat());
+        tvCarb.setText(facts.getCarbohydrates());
+        tvDietaryFiber.setText(facts.getDietaryFiber());
+        tvProtein.setText(facts.getProtein());
+        tvVitA.setText(facts.getVitaminA());
+        tvVitC.setText(facts.getVitaminC());
+        tvIron.setText(facts.getIron());
     }
 
 
