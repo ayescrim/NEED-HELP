@@ -158,6 +158,7 @@ public class MainActivity extends AppCompatActivity {
         dialogBuilder.setView(addDeleteDialog);
 
         final Button deleteButton = (Button) addDeleteDialog.findViewById(R.id.deleteButton);
+        //-NOTICE-final Button addProcButton = (Button) addDeleteDialog.findViewById(R.id.addProcButton);
 
         dialogBuilder.setTitle("Add procedure or delete "+recipeName+"?");
 
@@ -170,11 +171,14 @@ public class MainActivity extends AppCompatActivity {
                 deleteRecipe(recipeID);
             }
         });
+
+        //-NOTICE-addProcButton.setOnClickListener();
     }
 
     private void deleteRecipe(String recipeID) {
         DatabaseReference drRecipe = FirebaseDatabase.getInstance().getReference("recipes").child(recipeID);
         DatabaseReference drRecIng = FirebaseDatabase.getInstance().getReference("recipeIngredients").child(recipeID);
+        //-NOTICE-deleting of procedures still not added yet
 
         drRecipe.removeValue();
         drRecIng.removeValue();

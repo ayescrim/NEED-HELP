@@ -72,7 +72,7 @@ public class AddIngredient extends AppCompatActivity {
                 saveIngredient();
             }
         });
-
+/*
         showIngredientList.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
@@ -83,6 +83,7 @@ public class AddIngredient extends AppCompatActivity {
                 return false;
             }
         });
+        */
     }
 
     @Override
@@ -126,6 +127,7 @@ public class AddIngredient extends AppCompatActivity {
         }
     }
 
+    /*
     private void deleteThis(final String ingredientID, String ingredientName){
         AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
 
@@ -157,6 +159,8 @@ public class AddIngredient extends AppCompatActivity {
 
         Toast.makeText(this, "Successfully Deleted",Toast.LENGTH_LONG).show();
     }
+*/
+
 
 
     /*
@@ -169,7 +173,7 @@ public class AddIngredient extends AppCompatActivity {
 
         //calories from fat
         tempCaloriesFromFat = (tempCaloriesFromFat + ((quantity * measurement) * (GetFacts.getNutriCaloriesFromFat() / 100)));
-
+x`
         //total fat
         tempFat = (tempFat + ((quantity * measurement) * (GetFacts.getNutriFat() / 100)));
 
