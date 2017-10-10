@@ -4,7 +4,9 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -39,10 +41,13 @@ public class AddIngredientActivity extends AppCompatActivity implements View.OnC
 
     private ListView lvIngredientList;
 
-    //create database reference
+    //create database references
     DatabaseReference databaseIngredients;
+    DatabaseReference NutriIngredient;
 
     private List<Ingredient> ingredientList;
+
+
 
     private NutritionalFacts facts;
 
@@ -80,9 +85,11 @@ public class AddIngredientActivity extends AppCompatActivity implements View.OnC
                 ingredientList.clear();
                 //get the ingredients with the same ID
                 for (DataSnapshot ingredientSnapshot : dataSnapshot.getChildren()) {
+
                     Ingredient ingredient = ingredientSnapshot.getValue(Ingredient.class);
                     ingredientList.add(ingredient);
                 }
+
 
                 IngredientListAdapter ingredientListAdapter = new IngredientListAdapter(AddIngredientActivity.this, ingredientList);
                 lvIngredientList.setAdapter(ingredientListAdapter);
@@ -94,7 +101,12 @@ public class AddIngredientActivity extends AppCompatActivity implements View.OnC
             }
         });
 
+
+
+
     }
+
+
 
     private void setupViews() {
         tvRecipeName = (TextView) findViewById(R.id.tvRecipeName);
@@ -104,6 +116,8 @@ public class AddIngredientActivity extends AppCompatActivity implements View.OnC
         btnAddIngredient = (Button) findViewById(R.id.btnAddIngredient);
         lvIngredientList = (ListView) findViewById(R.id.showIngredientList);
         databaseIngredients = FirebaseDatabase.getInstance().getReference("recipeIngredients").child(id);
+        NutriIngredient = FirebaseDatabase.getInstance().getReference("NutriIngredient");
+
         btnNutriFact = (Button) findViewById(R.id.btnNutriFact);
         tvRecipeName.setText(name);
         //Set Listeners
@@ -112,10 +126,39 @@ public class AddIngredientActivity extends AppCompatActivity implements View.OnC
     }
 
 
+
+
     @Override
     protected void onStart() {
         super.onStart();
 
+
+        NutriIngredient.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                List<String> NutriIngredientList = new ArrayList<String>();
+                for (DataSnapshot NutriIngredientSnapshot : dataSnapshot.getChildren()) {
+                    String str = NutriIngredientSnapshot.getKey();
+
+
+                    NutriIngredientList.add(str);
+
+                    ArrayAdapter<String>  NutriIngredientAdapter = new ArrayAdapter<String>(AddIngredientActivity.this,R.layout.support_simple_spinner_dropdown_item,
+                            NutriIngredientList);
+                    spnIngredient.setAdapter(NutriIngredientAdapter);
+
+
+                }
+
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
 
     }
 

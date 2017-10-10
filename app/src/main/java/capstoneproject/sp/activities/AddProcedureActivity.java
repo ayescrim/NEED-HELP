@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -60,6 +61,17 @@ public class AddProcedureActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 saveProcedure();
+            }
+        });
+
+        showProcedureList.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
+
+                Procedure recipe = procedureList.get(i);
+
+                addDeleteThis(recipe.getRecipeID(), recipe.getRecipeName());
+                return true;
             }
         });
     }

@@ -9,11 +9,6 @@
         <item>kilo</item>
     </array>
 
-    <array name="tempfood">
-        <item>salt</item>
-        <item>sugar</item>
-    </array>
-
     <array name="coreingredient">
         <item>pork</item>
         <item>beef</item>
