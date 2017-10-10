@@ -10,51 +10,41 @@ import capstoneproject.sp.R;
 
 public class NutritionalFactsActivity extends AppCompatActivity implements View.OnClickListener{
 
-    TextView serveValue;
-    TextView calValue;
-    TextView calFromFatValue;
-    TextView fatValue;
-    TextView carbValue;
-    TextView dietaryFiberValue;
-    TextView proteinValue;
-    TextView vitAValue;
-    TextView vitCValue;
-    TextView calciumValue;
-    TextView ironValue;
+    TextView tvServerValue;
+    TextView tvCalValue;
+    TextView tvCalFromFatvalue;
+    TextView tvFatValue;
+    TextView tvCarbValue;
+    TextView tvDietaryFiberValue;
+    TextView tvProteinValue;
+    TextView tvVitAValue;
+    TextView tvVitCValue;
+    TextView tvCalciumValue;
+    TextView tvIronValue;
 
-    Button back;
+    Button btnBack;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_nutritional_facts);
-
-        serveValue = (TextView) findViewById(R.id.serveValue);
-        calValue = (TextView) findViewById(R.id.calValue);
-        calFromFatValue = (TextView) findViewById(R.id.calFromFatValue);
-        fatValue = (TextView) findViewById(R.id.fatValue);
-        carbValue = (TextView) findViewById(R.id.carbValue);
-        dietaryFiberValue = (TextView) findViewById(R.id.dietaryFiberValue);
-        proteinValue = (TextView) findViewById(R.id.proteinValue);
-        vitAValue = (TextView) findViewById(R.id.vitAValue);
-        vitCValue = (TextView) findViewById(R.id.vitCValue);
-        calciumValue = (TextView) findViewById(R.id.calciumValue);
-        ironValue = (TextView) findViewById(R.id.ironValue);
-
-        back = (Button) findViewById(R.id.back);
-
-        //returns to the add ingredient screen
-        back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                goBack();
-            }
-        });
+        initViews();
+        btnBack.setOnClickListener(this);
     }
 
-    //command
-    private void goBack() {
-        //tangina anu lalagay ko dito para mag back tapos ma end task to?
+    private void initViews() {
+        tvServerValue = (TextView) findViewById(R.id.serveValue);
+        tvCalValue = (TextView) findViewById(R.id.calValue);
+        tvCalFromFatvalue = (TextView) findViewById(R.id.calFromFatValue);
+        tvFatValue = (TextView) findViewById(R.id.fatValue);
+        tvCarbValue = (TextView) findViewById(R.id.carbValue);
+        tvDietaryFiberValue = (TextView) findViewById(R.id.dietaryFiberValue);
+        tvProteinValue = (TextView) findViewById(R.id.proteinValue);
+        tvVitAValue = (TextView) findViewById(R.id.vitAValue);
+        tvVitCValue = (TextView) findViewById(R.id.vitCValue);
+        tvCalciumValue = (TextView) findViewById(R.id.calciumValue);
+        tvIronValue = (TextView) findViewById(R.id.ironValue);
+        btnBack = (Button) findViewById(R.id.back);
     }
 
 
