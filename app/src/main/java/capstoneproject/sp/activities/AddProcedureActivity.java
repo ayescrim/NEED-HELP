@@ -49,7 +49,7 @@ public class AddProcedureActivity extends AppCompatActivity {
 
         procedureList = new ArrayList<>();
 
-        String id = intent.getStringExtra(MainActivity.RECIPE_NAME);
+        String id = intent.getStringExtra(MainActivity.RECIPE_ID);
         String name = intent.getStringExtra(MainActivity.RECIPE_NAME);
 
         recipeName.setText(name);

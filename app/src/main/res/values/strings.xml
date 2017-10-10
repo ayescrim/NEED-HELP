@@ -5,6 +5,8 @@
         <item>pinch</item>
         <item>tsp</item>
         <item>tbsp</item>
+        <item>gram</item>
+        <item>kilo</item>
     </array>
 
     <array name="tempfood">

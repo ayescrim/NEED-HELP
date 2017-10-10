@@ -81,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
                 Recipe recipe = recipeList.get(i);
 
                 addDeleteThis(recipe.getRecipeID(), recipe.getRecipeName());
-                return false;
+                return true;
             }
         });
 
@@ -116,13 +116,13 @@ public class MainActivity extends AppCompatActivity {
 
                     case "pork":
                         ArrayAdapter<String> spinnerPork = new ArrayAdapter<String>(parent.getContext(),R.layout.support_simple_spinner_dropdown_item,
-                                getResources().getStringArray(R.array.coreingredientChicken));
+                                getResources().getStringArray(R.array.coreingredientPork));
                         coreIngredientPart.setAdapter(spinnerPork);
                         break;
 
                     case "beef":
                         ArrayAdapter<String> spinnerBeef = new ArrayAdapter<String>(parent.getContext(),R.layout.support_simple_spinner_dropdown_item,
-                                getResources().getStringArray(R.array.coreingredientChicken));
+                                getResources().getStringArray(R.array.coreingredientBeef));
                         coreIngredientPart.setAdapter(spinnerBeef);
                         break;
                 }
