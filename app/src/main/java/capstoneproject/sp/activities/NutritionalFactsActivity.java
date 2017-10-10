@@ -8,7 +8,7 @@ import android.widget.TextView;
 
 import capstoneproject.sp.R;
 
-public class NutritionalFactsActivity extends AppCompatActivity {
+public class NutritionalFactsActivity extends AppCompatActivity implements View.OnClickListener{
 
     TextView serveValue;
     TextView calValue;
@@ -58,6 +58,12 @@ public class NutritionalFactsActivity extends AppCompatActivity {
     }
 
 
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.back:
+        }
+    }
 }
 
 
