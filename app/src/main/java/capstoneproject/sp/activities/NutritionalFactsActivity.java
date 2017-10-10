@@ -10,17 +10,17 @@ import capstoneproject.sp.R;
 
 public class NutritionalFactsActivity extends AppCompatActivity implements View.OnClickListener{
 
-    TextView tvServerValue;
-    TextView tvCalValue;
-    TextView tvCalFromFatvalue;
-    TextView tvFatValue;
-    TextView tvCarbValue;
-    TextView tvDietaryFiberValue;
-    TextView tvProteinValue;
-    TextView tvVitAValue;
-    TextView tvVitCValue;
-    TextView tvCalciumValue;
-    TextView tvIronValue;
+    TextView tvServe;
+    TextView tvCal;
+    TextView tvCalFromFat;
+    TextView tvFat;
+    TextView tvCarb;
+    TextView tvDietaryFiber;
+    TextView tvProtein;
+    TextView tvVitA;
+    TextView tvVitC;
+    TextView tvCalcium;
+    TextView tvIron;
 
     Button btnBack;
 
@@ -33,17 +33,17 @@ public class NutritionalFactsActivity extends AppCompatActivity implements View.
     }
 
     private void initViews() {
-        tvServerValue = (TextView) findViewById(R.id.serveValue);
-        tvCalValue = (TextView) findViewById(R.id.calValue);
-        tvCalFromFatvalue = (TextView) findViewById(R.id.calFromFatValue);
-        tvFatValue = (TextView) findViewById(R.id.fatValue);
-        tvCarbValue = (TextView) findViewById(R.id.carbValue);
-        tvDietaryFiberValue = (TextView) findViewById(R.id.dietaryFiberValue);
-        tvProteinValue = (TextView) findViewById(R.id.proteinValue);
-        tvVitAValue = (TextView) findViewById(R.id.vitAValue);
-        tvVitCValue = (TextView) findViewById(R.id.vitCValue);
-        tvCalciumValue = (TextView) findViewById(R.id.calciumValue);
-        tvIronValue = (TextView) findViewById(R.id.ironValue);
+        tvServe = (TextView) findViewById(R.id.serveValue);
+        tvCal = (TextView) findViewById(R.id.calValue);
+        tvCalFromFat = (TextView) findViewById(R.id.calFromFatValue);
+        tvFat = (TextView) findViewById(R.id.fatValue);
+        tvCarb = (TextView) findViewById(R.id.carbValue);
+        tvDietaryFiber = (TextView) findViewById(R.id.dietaryFiberValue);
+        tvProtein = (TextView) findViewById(R.id.proteinValue);
+        tvVitA = (TextView) findViewById(R.id.vitAValue);
+        tvVitC = (TextView) findViewById(R.id.vitCValue);
+        tvCalcium = (TextView) findViewById(R.id.calciumValue);
+        tvIron = (TextView) findViewById(R.id.ironValue);
         btnBack = (Button) findViewById(R.id.back);
     }
 
