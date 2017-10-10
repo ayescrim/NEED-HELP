@@ -39,7 +39,7 @@ public class AddProcedureActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_procedure);
 
-        recipeName = (TextView) findViewById(R.id.recipeName);
+        recipeName = (TextView) findViewById(R.id.tvRecipeName);
         process = (EditText) findViewById(R.id.process);
         showProcedureList = (ListView) findViewById(R.id.showProcedureList);
         addProcedure = (Button) findViewById(R.id.addProcedure);

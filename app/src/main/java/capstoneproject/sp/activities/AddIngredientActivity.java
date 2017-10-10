@@ -23,74 +23,56 @@ import java.util.List;
 
 import capstoneproject.sp.adapter.IngredientListAdapter;
 import capstoneproject.sp.R;
+import capstoneproject.sp.keys.BundleKey;
+import capstoneproject.sp.mock.MockNutritionalFacts;
 import capstoneproject.sp.model.Ingredient;
+import capstoneproject.sp.model.NutritionalFacts;
 
-public class AddIngredientActivity extends AppCompatActivity {
+public class AddIngredientActivity extends AppCompatActivity implements View.OnClickListener{
 
-    TextView recipeName;
-    EditText quantity;
-    Spinner measurement;
-    Spinner ingredient;
-    Button addIngredient;
+    private TextView tvRecipeName;
+    private EditText etQuantity;
+    private Spinner spnMeasurement;
+    private Spinner spnIngredient;
+    private Button btnAddIngredient;
+    private Button btnNutriFact;
 
-    ListView showIngredientList;
+    private ListView lvIngredientList;
 
     //create database reference
     DatabaseReference databaseIngredients;
 
-    List<Ingredient> ingredientList;
+    private List<Ingredient> ingredientList;
+
+    private NutritionalFacts facts;
+
+    private String id;
+
+    private String name;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_ingredient);
 
-        recipeName = (TextView) findViewById(R.id.recipeName);
-        quantity = (EditText) findViewById(R.id.quantity);
-        measurement = (Spinner) findViewById(R.id.measurement);
-        //edit spinner mamaya, preset na ingredients na nsa firebase dpat andito pag nalagyan na
-        ingredient = (Spinner) findViewById(R.id.ingredient);
-
-        addIngredient = (Button) findViewById(R.id.addIngredient);
-        showIngredientList = (ListView) findViewById(R.id.showIngredientList);
-
-        Intent intent = getIntent();
-
         ingredientList = new ArrayList<>();
-        //takes the unique name and id of the recipe into account when adding
-        String id = intent.getStringExtra(MainActivity.RECIPE_ID);
-        String name = intent.getStringExtra(MainActivity.RECIPE_NAME);
+        Intent intent = getIntent();
+        id = intent.getStringExtra(MainActivity.RECIPE_ID);
+        name = intent.getStringExtra(MainActivity.RECIPE_NAME);
 
-        recipeName.setText(name);
-
-        //create id and get ingredients from firebase with same created recipe ID
-        databaseIngredients = FirebaseDatabase.getInstance().getReference("recipeIngredients").child(id);
-
-        //when add ingredient is clicked
-        addIngredient.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                saveIngredient();
-            }
-        });
+        setupViews();
 /*
-        showIngredientList.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+        lvIngredientList.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
 
-                Ingredient ingredient = ingredientList.get(i);
+                Ingredient spnIngredient = ingredientList.get(i);
 
-                deleteThis(ingredient.getIngredientID(), ingredient.getIngredientName());
+                deleteThis(spnIngredient.getIngredientID(), spnIngredient.getIngredientName());
                 return false;
             }
         });
         */
-    }
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-
         databaseIngredients.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -103,7 +85,7 @@ public class AddIngredientActivity extends AppCompatActivity {
                 }
 
                 IngredientListAdapter ingredientListAdapter = new IngredientListAdapter(AddIngredientActivity.this, ingredientList);
-                showIngredientList.setAdapter(ingredientListAdapter);
+                lvIngredientList.setAdapter(ingredientListAdapter);
             }
 
             @Override
@@ -111,12 +93,36 @@ public class AddIngredientActivity extends AppCompatActivity {
 
             }
         });
+
+    }
+
+    private void setupViews() {
+        tvRecipeName = (TextView) findViewById(R.id.tvRecipeName);
+        etQuantity = (EditText) findViewById(R.id.etQuantity);
+        spnMeasurement = (Spinner) findViewById(R.id.spnMeasurement);
+        spnIngredient = (Spinner) findViewById(R.id.spnIngredient);
+        btnAddIngredient = (Button) findViewById(R.id.btnAddIngredient);
+        lvIngredientList = (ListView) findViewById(R.id.showIngredientList);
+        databaseIngredients = FirebaseDatabase.getInstance().getReference("recipeIngredients").child(id);
+        btnNutriFact = (Button) findViewById(R.id.btnNutriFact);
+        tvRecipeName.setText(name);
+        //Set Listeners
+        btnAddIngredient.setOnClickListener(this);
+        btnNutriFact.setOnClickListener(this);
+    }
+
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+
     }
 
     private void saveIngredient() {
-        String ingredientQuantity = quantity.getText().toString();
-        String ingredientMeasurement = measurement.getSelectedItem().toString();
-        String ingredientName = ingredient.getSelectedItem().toString();
+        String ingredientQuantity = etQuantity.getText().toString();
+        String ingredientMeasurement = spnMeasurement.getSelectedItem().toString();
+        String ingredientName = spnIngredient.getSelectedItem().toString();
         if (!TextUtils.isEmpty(ingredientQuantity)) {
             String id = databaseIngredients.push().getKey();
 
@@ -128,6 +134,28 @@ public class AddIngredientActivity extends AppCompatActivity {
         }
     }
 
+
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.btnNutriFact:
+                facts = MockNutritionalFacts.generate(); //Mock nutrifacts for testing
+                //start nutritional facts activity passing moc nutrifact
+                showNutritionalFacts();
+                break;
+
+            case R.id.btnAddIngredient:
+                saveIngredient();
+                break;
+        }
+    }
+
+    private void showNutritionalFacts() {
+        Intent intent = new Intent(this, NutritionalFactsActivity.class);
+        intent.putExtra(BundleKey.NUTRIFACTS, facts);
+        startActivity(intent);
+    }
     /*
     private void deleteThis(final String ingredientID, String ingredientName){
         AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
@@ -167,37 +195,37 @@ public class AddIngredientActivity extends AppCompatActivity {
     /*
     public void calculateIngredient(){
         //serving size, need to total ingredients grams
-        tempServingSize = servingSize + (quantity * newMeasure);
+        tempServingSize = servingSize + (etQuantity * newMeasure);
 
         //calories
-        tempCalories = (tempCalories + ((quantity * measurement) * (NutritionalFacts.getNutriCalories() / 100)));
+        tempCalories = (tempCalories + ((etQuantity * spnMeasurement) * (NutritionalFacts.getCalories() / 100)));
 
         //calories from fat
-        tempCaloriesFromFat = (tempCaloriesFromFat + ((quantity * measurement) * (NutritionalFacts.getNutriCaloriesFromFat() / 100)));
+        tempCaloriesFromFat = (tempCaloriesFromFat + ((etQuantity * spnMeasurement) * (NutritionalFacts.getCaloriesFromFat() / 100)));
 x`
         //total fat
-        tempFat = (tempFat + ((quantity * measurement) * (NutritionalFacts.getNutriFat() / 100)));
+        tempFat = (tempFat + ((etQuantity * spnMeasurement) * (NutritionalFacts.getFat() / 100)));
 
         //total carbohydrate
-        tempCarbohydrates = (tempCarbohydrates + ((quantity * measurement) * (NutritionalFacts.getNutriCarbohydrates() / 100)));
+        tempCarbohydrates = (tempCarbohydrates + ((etQuantity * spnMeasurement) * (NutritionalFacts.getCarbohydrates() / 100)));
 
         //dietary fiber
-        tempDietaryFiber = (tempDietaryFiber + ((quantity * measurement) * (NutritionalFacts.getNutriDietaryFiber() / 100 )));
+        tempDietaryFiber = (tempDietaryFiber + ((etQuantity * spnMeasurement) * (NutritionalFacts.getDietaryFiber() / 100 )));
 
         //protein
-        tempProtein = (tempProtein + ((quantity * measurement) * (NutritionalFacts.getNutriProtein() / 100)));
+        tempProtein = (tempProtein + ((etQuantity * spnMeasurement) * (NutritionalFacts.getProtein() / 100)));
 
         //vitaminA
-        tempVitaminA = (tempVitaminA + ((quantity * measurement) * (NutritionalFacts.getNutriVitaminA() / 100)));
+        tempVitaminA = (tempVitaminA + ((etQuantity * spnMeasurement) * (NutritionalFacts.getVitaminA() / 100)));
 
         //vitaminC
-        tempVitC = (tempVitaminC + ((quantity * measurement) * (NutritionalFacts.getNutriVitaminC() / 100)));
+        tempVitC = (tempVitaminC + ((etQuantity * spnMeasurement) * (NutritionalFacts.getVitaminC() / 100)));
 
         //iron
-        tempIron = (tempIron + ((quantity * measurement) * (NutritionalFacts.getNutriIron() / 100)));
+        tempIron = (tempIron + ((etQuantity * spnMeasurement) * (NutritionalFacts.getIron() / 100)));
 
         //calcium
-        tempCalcium = (tempCalcium + ((quantity * measurement) * (NutritionalFacts.getNutriCalcium() / 100)));
+        tempCalcium = (tempCalcium + ((etQuantity * spnMeasurement) * (NutritionalFacts.getCalcium() / 100)));
     }
 
 
