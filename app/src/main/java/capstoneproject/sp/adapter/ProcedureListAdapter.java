@@ -20,7 +20,7 @@ public class ProcedureListAdapter extends ArrayAdapter<Procedure> {
 
     List<Procedure> procedureList;
 
-    public ProcedureListAdapter(Activity context, List<Procedure> procedureList){
+    public ProcedureListAdapter(Activity context, List<Procedure> procedureList) {
         super(context, R.layout.procedure_layout, procedureList);
         this.context = context;
         this.procedureList = procedureList;

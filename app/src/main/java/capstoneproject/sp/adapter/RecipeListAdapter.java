@@ -22,8 +22,8 @@ public class RecipeListAdapter extends ArrayAdapter<Recipe> {
     List<Recipe> recipeList;
 
     //initializes all the values
-    public RecipeListAdapter(Activity context, List<Recipe> recipeList){
-        super(context, R.layout.list_layout,recipeList);
+    public RecipeListAdapter(Activity context, List<Recipe> recipeList) {
+        super(context, R.layout.list_layout, recipeList);
         this.context = context;
         this.recipeList = recipeList;
     }
@@ -35,8 +35,8 @@ public class RecipeListAdapter extends ArrayAdapter<Recipe> {
         LayoutInflater inflater = context.getLayoutInflater();
 
         View listViewItem = inflater.inflate(R.layout.list_layout, null, true);
-        TextView textViewName = (TextView)listViewItem.findViewById(R.id.textViewName);
-        TextView textViewDescription = (TextView)listViewItem.findViewById(R.id.textViewDescription);
+        TextView textViewName = (TextView) listViewItem.findViewById(R.id.textViewName);
+        TextView textViewDescription = (TextView) listViewItem.findViewById(R.id.textViewDescription);
 
         Recipe recipe = recipeList.get(position);
 

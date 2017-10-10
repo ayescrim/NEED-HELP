@@ -45,14 +45,14 @@ public class AddIngredientActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_ingredient);
 
-        recipeName = (TextView)findViewById(R.id.recipeName);
-        quantity = (EditText)findViewById(R.id.quantity);
-        measurement = (Spinner)findViewById(R.id.measurement);
+        recipeName = (TextView) findViewById(R.id.recipeName);
+        quantity = (EditText) findViewById(R.id.quantity);
+        measurement = (Spinner) findViewById(R.id.measurement);
         //edit spinner mamaya, preset na ingredients na nsa firebase dpat andito pag nalagyan na
-        ingredient = (Spinner)findViewById(R.id.ingredient);
+        ingredient = (Spinner) findViewById(R.id.ingredient);
 
-        addIngredient = (Button)findViewById(R.id.addIngredient);
-        showIngredientList = (ListView)findViewById(R.id.showIngredientList);
+        addIngredient = (Button) findViewById(R.id.addIngredient);
+        showIngredientList = (ListView) findViewById(R.id.showIngredientList);
 
         Intent intent = getIntent();
 
@@ -97,13 +97,13 @@ public class AddIngredientActivity extends AppCompatActivity {
                 //madumi na ampota kaya linisin muna
                 ingredientList.clear();
                 //get the ingredients with the same ID
-                    for(DataSnapshot ingredientSnapshot : dataSnapshot.getChildren()){
-                        Ingredient ingredient = ingredientSnapshot.getValue(Ingredient.class);
-                        ingredientList.add(ingredient);
-                    }
+                for (DataSnapshot ingredientSnapshot : dataSnapshot.getChildren()) {
+                    Ingredient ingredient = ingredientSnapshot.getValue(Ingredient.class);
+                    ingredientList.add(ingredient);
+                }
 
                 IngredientListAdapter ingredientListAdapter = new IngredientListAdapter(AddIngredientActivity.this, ingredientList);
-                    showIngredientList.setAdapter(ingredientListAdapter);
+                showIngredientList.setAdapter(ingredientListAdapter);
             }
 
             @Override
@@ -113,17 +113,17 @@ public class AddIngredientActivity extends AppCompatActivity {
         });
     }
 
-    private void saveIngredient(){
+    private void saveIngredient() {
         String ingredientQuantity = quantity.getText().toString();
         String ingredientMeasurement = measurement.getSelectedItem().toString();
         String ingredientName = ingredient.getSelectedItem().toString();
-        if(!TextUtils.isEmpty(ingredientQuantity)){
+        if (!TextUtils.isEmpty(ingredientQuantity)) {
             String id = databaseIngredients.push().getKey();
 
             Ingredient ingredient = new Ingredient(id, ingredientQuantity, ingredientMeasurement, ingredientName);
 
             databaseIngredients.child(id).setValue(ingredient);
-        }else{
+        } else {
             Toast.makeText(this, "Input Fields Required", Toast.LENGTH_LONG).show();
         }
     }
@@ -218,5 +218,4 @@ x`
 */
 
 
-
-    }
+}

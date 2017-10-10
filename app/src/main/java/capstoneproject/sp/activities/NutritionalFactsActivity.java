@@ -29,19 +29,19 @@ public class NutritionalFactsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_nutritional_facts);
 
-        serveValue = (TextView)findViewById(R.id.serveValue);
-        calValue = (TextView)findViewById(R.id.calValue);
-        calFromFatValue = (TextView)findViewById(R.id.calFromFatValue);
-        fatValue = (TextView)findViewById(R.id.fatValue);
-        carbValue = (TextView)findViewById(R.id.carbValue);
-        dietaryFiberValue = (TextView)findViewById(R.id.dietaryFiberValue);
-        proteinValue = (TextView)findViewById(R.id.proteinValue);
-        vitAValue = (TextView)findViewById(R.id.vitAValue);
-        vitCValue = (TextView)findViewById(R.id.vitCValue);
-        calciumValue = (TextView)findViewById(R.id.calciumValue);
-        ironValue = (TextView)findViewById(R.id.ironValue);
+        serveValue = (TextView) findViewById(R.id.serveValue);
+        calValue = (TextView) findViewById(R.id.calValue);
+        calFromFatValue = (TextView) findViewById(R.id.calFromFatValue);
+        fatValue = (TextView) findViewById(R.id.fatValue);
+        carbValue = (TextView) findViewById(R.id.carbValue);
+        dietaryFiberValue = (TextView) findViewById(R.id.dietaryFiberValue);
+        proteinValue = (TextView) findViewById(R.id.proteinValue);
+        vitAValue = (TextView) findViewById(R.id.vitAValue);
+        vitCValue = (TextView) findViewById(R.id.vitCValue);
+        calciumValue = (TextView) findViewById(R.id.calciumValue);
+        ironValue = (TextView) findViewById(R.id.ironValue);
 
-        back = (Button)findViewById(R.id.back);
+        back = (Button) findViewById(R.id.back);
 
         //returns to the add ingredient screen
         back.setOnClickListener(new View.OnClickListener() {
@@ -53,7 +53,7 @@ public class NutritionalFactsActivity extends AppCompatActivity {
     }
 
     //command
-    private void goBack(){
+    private void goBack() {
         //tangina anu lalagay ko dito para mag back tapos ma end task to?
     }
 

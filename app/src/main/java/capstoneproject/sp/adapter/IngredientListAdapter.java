@@ -22,8 +22,8 @@ public class IngredientListAdapter extends ArrayAdapter<Ingredient> {
     List<Ingredient> ingredientList;
 
     //initializes all the values
-    public IngredientListAdapter(Activity context, List<Ingredient> ingredientList){
-        super(context, R.layout.ingredient_layout,ingredientList);
+    public IngredientListAdapter(Activity context, List<Ingredient> ingredientList) {
+        super(context, R.layout.ingredient_layout, ingredientList);
         this.context = context;
         this.ingredientList = ingredientList;
     }
@@ -35,9 +35,9 @@ public class IngredientListAdapter extends ArrayAdapter<Ingredient> {
         LayoutInflater inflater = context.getLayoutInflater();
 
         View listViewItem = inflater.inflate(R.layout.ingredient_layout, null, true);
-        TextView textViewQuantity = (TextView)listViewItem.findViewById(R.id.textViewQuantity);
-        TextView textViewMeasurement = (TextView)listViewItem.findViewById(R.id.textViewMeasurement);
-        TextView textViewIngredient = (TextView)listViewItem.findViewById(R.id.textViewIngredient);
+        TextView textViewQuantity = (TextView) listViewItem.findViewById(R.id.textViewQuantity);
+        TextView textViewMeasurement = (TextView) listViewItem.findViewById(R.id.textViewMeasurement);
+        TextView textViewIngredient = (TextView) listViewItem.findViewById(R.id.textViewIngredient);
 
         Ingredient ingredient = ingredientList.get(position);
 

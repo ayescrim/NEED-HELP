@@ -1,14 +1,13 @@
 package capstoneproject.sp.model;
 
 
-
 public class Recipe {
 
     String recipeID;
     String recipeName;
     String recipeDescription;
 
-    public Recipe(){
+    public Recipe() {
         //used when reading values (importante daw kahit blank sabi ni youtube sensei)
     }
 
@@ -23,9 +22,11 @@ public class Recipe {
     public String getRecipeID() {
         return recipeID;
     }
+
     public String getRecipeName() {
         return recipeName;
     }
+
     public String getRecipeDescription() {
         return recipeDescription;
     }
