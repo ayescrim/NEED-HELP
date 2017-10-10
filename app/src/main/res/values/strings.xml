@@ -12,4 +12,28 @@
         <item>sugar</item>
     </array>
 
+    <array name="coreingredient">
+        <item>pork</item>
+        <item>beef</item>
+        <item>chicken</item>
+
+    <array name="coreingredientChicken">
+        <item>head</item>
+        <item>drumstick</item>
+        <item>thigh</item>
+        <item>breast</item>
+        <item>leg</item>
+        <item>wing</item>
+    </array>
+
+    <array name="coreingredientPork">
+        <item>head</item>
+        <item>spareribs</item>
+        <item>porkchop</item>
+        <item>loin</item>
+        <item>belly</item>
+        <item>back</item>
+        <item>leg</item>
+    </array>
+
 </resources>

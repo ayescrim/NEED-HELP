@@ -29,32 +29,10 @@
         android:inputType="textPersonName"
         android:hint="Recipe Name"
         app:layout_constraintBottom_toTopOf="@+id/addRec"
-        app:layout_constraintLeft_toLeftOf="@+id/recDesc"
-        app:layout_constraintRight_toRightOf="@+id/recDesc"
         app:layout_constraintTop_toTopOf="@+id/textView"
         tools:layout_constraintBottom_creator="1"
-        tools:layout_constraintLeft_creator="1"
-        tools:layout_constraintRight_creator="1"
-        tools:layout_constraintTop_creator="1" />
-
-    <EditText
-        android:id="@+id/recDesc"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginEnd="19dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="10dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:hint="Recipe Description"
-        app:layout_constraintBottom_toBottomOf="@+id/addRec"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toLeftOf="@+id/addRec"
-        app:layout_constraintTop_toBottomOf="@+id/recName"
-        tools:layout_constraintBottom_creator="1"
-        tools:layout_constraintLeft_creator="1"
-        tools:layout_constraintRight_creator="1"
-        tools:layout_constraintTop_creator="1" />
+        tools:layout_constraintTop_creator="1"
+        tools:layout_editor_absoluteX="16dp" />
 
     <Button
         android:id="@+id/addRec"
@@ -84,5 +62,35 @@
         tools:layout_constraintLeft_creator="1"
         android:layout_marginBottom="16dp"
         app:layout_constraintLeft_toLeftOf="parent" />
+
+    <Spinner
+        android:id="@+id/coreIngredient"
+        android:layout_width="240dp"
+        android:layout_height="26dp"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="118dp" />
+
+    <Spinner
+        android:id="@+id/coreIngredientPart"
+        android:layout_width="241dp"
+        android:layout_height="25dp"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="169dp" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Core Ingredient"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="101dp" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Core Ingredient Part"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="152dp" />
 
 </android.support.constraint.ConstraintLayout>
