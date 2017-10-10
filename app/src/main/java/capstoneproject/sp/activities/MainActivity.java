@@ -54,11 +54,11 @@ public class MainActivity extends AppCompatActivity {
         databaseRecipes = FirebaseDatabase.getInstance().getReference("recipes");
 
 // setting values of the variables
-        recName = (EditText)findViewById(R.id.recName);
-        recDesc = (EditText)findViewById(R.id.recDesc);
-        addRec = (Button)findViewById(R.id.addRec);
+        recName = (EditText) findViewById(R.id.recName);
+        recDesc = (EditText) findViewById(R.id.recDesc);
+        addRec = (Button) findViewById(R.id.addRec);
 
-        listViewRecipes = (ListView)findViewById(R.id.listViewRecipes);
+        listViewRecipes = (ListView) findViewById(R.id.listViewRecipes);
         //initializing the recipe list
         recipeList = new ArrayList<>();
 //when button is clicked shit happens
@@ -99,6 +99,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+
     //rightclick -> generate -> overide methods -> onstart..overide on start for the listview to appear
     @Override
     protected void onStart() {
@@ -121,6 +122,7 @@ public class MainActivity extends AppCompatActivity {
                 RecipeListAdapter adapter = new RecipeListAdapter(MainActivity.this, recipeList);
                 listViewRecipes.setAdapter(adapter);
             }
+
             //executes when there is an error
             @Override
             public void onCancelled(DatabaseError databaseError) {
@@ -130,26 +132,26 @@ public class MainActivity extends AppCompatActivity {
     }
 
     //eto ung nirurun pag clinick ung button
-    private void addRecipe(){
+    private void addRecipe() {
         String name = recName.getText().toString().trim();
         String description = recDesc.getText().toString();
 //checking kung my tanga na di nag input ng kahit anu pinindot lang ung add
-        if(!TextUtils.isEmpty(name)){
+        if (!TextUtils.isEmpty(name)) {
             //yes my utak sya kaya gumana... creating unique string inside "recipes" when push and get to get the ID stored as string
             String id = databaseRecipes.push().getKey();
             //create new
-            Recipe recipe = new Recipe(id,name,description);
+            Recipe recipe = new Recipe(id, name, description);
             //store to firebase
             databaseRecipes.child(id).setValue(recipe);
 
             //notifications
             Toast.makeText(this, "Successfully Added", Toast.LENGTH_LONG).show();
-        }else{
+        } else {
             Toast.makeText(this, "Input Field Required", Toast.LENGTH_LONG).show();
         }
     }
 
-    private void addDeleteThis(final String recipeID, String recipeName){
+    private void addDeleteThis(final String recipeID, String recipeName) {
         AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
 
         LayoutInflater inflater = getLayoutInflater();
@@ -161,7 +163,7 @@ public class MainActivity extends AppCompatActivity {
         final Button deleteButton = (Button) addDeleteDialog.findViewById(R.id.deleteButton);
         //-NOTICE-final Button addProcButton = (Button) addDeleteDialog.findViewById(R.id.addProcButton);
 
-        dialogBuilder.setTitle("Add procedure or delete "+recipeName+"?");
+        dialogBuilder.setTitle("Add procedure or delete " + recipeName + "?");
 
         AlertDialog alertDialog = dialogBuilder.create();
         alertDialog.show();
@@ -184,7 +186,7 @@ public class MainActivity extends AppCompatActivity {
         drRecipe.removeValue();
         drRecIng.removeValue();
 
-        Toast.makeText(this, "Successfully Deleted",Toast.LENGTH_LONG).show();
+        Toast.makeText(this, "Successfully Deleted", Toast.LENGTH_LONG).show();
     }
 
 }
