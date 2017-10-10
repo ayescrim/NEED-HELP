@@ -11,9 +11,15 @@
         android:text="Name" />
 
     <TextView
-        android:id="@+id/textViewDescription"
-        android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
+        android:id="@+id/textViewCoreIngredient"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Description" />
+        android:text="core ingredient"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Small" />
+
+    <TextView
+        android:id="@+id/textViewCoreIngredientPart"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="core ingredient part" />
 </LinearLayout>

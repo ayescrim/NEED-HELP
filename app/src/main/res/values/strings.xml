@@ -16,23 +16,42 @@
         <item>pork</item>
         <item>beef</item>
         <item>chicken</item>
+    </array>
 
     <array name="coreingredientChicken">
         <item>head</item>
+        <item>neck</item>
+        <item>breast</item>
+        <item>tenderloin</item>
+        <item>back</item>
+        <item>wing</item>
         <item>drumstick</item>
         <item>thigh</item>
-        <item>breast</item>
-        <item>leg</item>
-        <item>wing</item>
     </array>
 
     <array name="coreingredientPork">
         <item>head</item>
-        <item>spareribs</item>
-        <item>porkchop</item>
+        <item>cheek</item>
+        <item>colar/neck</item>
+        <item>shoulder/hand</item>
         <item>loin</item>
         <item>belly</item>
-        <item>back</item>
+        <item>chump</item>
+        <item>leg</item>
+    </array>
+
+    <array name="coreingredientBeef">
+        <item>tounge/cheek</item>
+        <item>neck/clod</item>
+        <item>chuck</item>
+        <item>brisket</item>
+        <item>shin</item>
+        <item>fore ribs</item>
+        <item>sirloin/fillet</item>
+        <item>flank</item>
+        <item>rump</item>
+        <item>silverside/topside</item>
+        <item>thick flank</item>
         <item>leg</item>
     </array>
 

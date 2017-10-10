@@ -8,9 +8,11 @@ import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
@@ -34,7 +36,8 @@ public class MainActivity extends AppCompatActivity {
 
     //declaration of widgets
     EditText recName;
-    EditText recDesc;
+    Spinner coreIngredient;
+    Spinner coreIngredientPart;
     Button addRec;
 
     //create database reference object
@@ -55,7 +58,8 @@ public class MainActivity extends AppCompatActivity {
 
 // setting values of the variables
         recName = (EditText) findViewById(R.id.recName);
-        recDesc = (EditText) findViewById(R.id.recDesc);
+        coreIngredient = (Spinner) findViewById(R.id.textViewCoreIngredient);
+        coreIngredientPart = (Spinner) findViewById(R.id.textViewCoreIngredientPart);
         addRec = (Button) findViewById(R.id.addRec);
 
         listViewRecipes = (ListView) findViewById(R.id.listViewRecipes);
@@ -69,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        //long press para mag prompt delete
+        //long press para mag prompt add procedure and delete
         listViewRecipes.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
@@ -94,6 +98,41 @@ public class MainActivity extends AppCompatActivity {
                 intent.putExtra(RECIPE_NAME, recipe.getRecipeName());
 
                 startActivity(intent);
+            }
+        });
+
+        coreIngredient.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+
+                String key = parent.getItemAtPosition(position).toString();
+
+                switch (key){
+                    case "chicken":
+                        ArrayAdapter<String> spinnerChicken = new ArrayAdapter<String>(parent.getContext(),R.layout.support_simple_spinner_dropdown_item,
+                                getResources().getStringArray(R.array.coreingredientChicken));
+                        coreIngredientPart.setAdapter(spinnerChicken);
+                        break;
+
+                    case "pork":
+                        ArrayAdapter<String> spinnerPork = new ArrayAdapter<String>(parent.getContext(),R.layout.support_simple_spinner_dropdown_item,
+                                getResources().getStringArray(R.array.coreingredientChicken));
+                        coreIngredientPart.setAdapter(spinnerPork);
+                        break;
+
+                    case "beef":
+                        ArrayAdapter<String> spinnerBeef = new ArrayAdapter<String>(parent.getContext(),R.layout.support_simple_spinner_dropdown_item,
+                                getResources().getStringArray(R.array.coreingredientChicken));
+                        coreIngredientPart.setAdapter(spinnerBeef);
+                        break;
+                }
+
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
             }
         });
 
@@ -134,13 +173,15 @@ public class MainActivity extends AppCompatActivity {
     //eto ung nirurun pag clinick ung button
     private void addRecipe() {
         String name = recName.getText().toString().trim();
-        String description = recDesc.getText().toString();
+        String coreingredient = coreIngredient.getSelectedItem().toString();
+        String coreingredientpart = coreIngredientPart.getSelectedItem().toString();
+
 //checking kung my tanga na di nag input ng kahit anu pinindot lang ung add
         if (!TextUtils.isEmpty(name)) {
             //yes my utak sya kaya gumana... creating unique string inside "recipes" when push and get to get the ID stored as string
             String id = databaseRecipes.push().getKey();
             //create new
-            Recipe recipe = new Recipe(id, name, description);
+            Recipe recipe = new Recipe(id, name, coreingredient, coreingredientpart);
             //store to firebase
             databaseRecipes.child(id).setValue(recipe);
 
@@ -161,7 +202,7 @@ public class MainActivity extends AppCompatActivity {
         dialogBuilder.setView(addDeleteDialog);
 
         final Button deleteButton = (Button) addDeleteDialog.findViewById(R.id.deleteButton);
-        //-NOTICE-final Button addProcButton = (Button) addDeleteDialog.findViewById(R.id.addProcButton);
+        final Button addProcButton = (Button) addDeleteDialog.findViewById(R.id.addProcButton);
 
         dialogBuilder.setTitle("Add procedure or delete " + recipeName + "?");
 
@@ -175,7 +216,14 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        //-NOTICE-addProcButton.setOnClickListener();
+        addProcButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(),AddProcedureActivity.class);
+                intent.putExtra("recipeID",recipeID);
+                startActivity(intent);
+            }
+        });
     }
 
     private void deleteRecipe(String recipeID) {

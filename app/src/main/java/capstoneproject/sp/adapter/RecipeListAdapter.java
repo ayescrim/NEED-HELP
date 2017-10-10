@@ -36,12 +36,14 @@ public class RecipeListAdapter extends ArrayAdapter<Recipe> {
 
         View listViewItem = inflater.inflate(R.layout.list_layout, null, true);
         TextView textViewName = (TextView) listViewItem.findViewById(R.id.textViewName);
-        TextView textViewDescription = (TextView) listViewItem.findViewById(R.id.textViewDescription);
+        TextView textViewCoreIngredient = (TextView) listViewItem.findViewById(R.id.textViewCoreIngredient);
+        TextView textViewCoreIngredientPart = (TextView) listViewItem.findViewById(R.id.textViewCoreIngredientPart);
 
         Recipe recipe = recipeList.get(position);
 
         textViewName.setText(recipe.getRecipeName());
-        textViewDescription.setText(recipe.getRecipeDescription());
+        textViewCoreIngredient.setText(recipe.getRecipeCoreIngredient());
+        textViewCoreIngredientPart.setText(recipe.getRecipeCoreIngredientPart());
 
         return listViewItem;
     }
