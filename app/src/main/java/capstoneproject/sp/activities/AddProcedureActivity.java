@@ -1,4 +1,4 @@
-package capstoneproject.sp;
+package capstoneproject.sp.activities;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -20,7 +20,11 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AddProcedure extends AppCompatActivity {
+import capstoneproject.sp.model.Procedure;
+import capstoneproject.sp.adapter.ProcedureListAdapter;
+import capstoneproject.sp.R;
+
+public class AddProcedureActivity extends AppCompatActivity {
     TextView recipeName;
     EditText process;
     Button addProcedure;
@@ -73,7 +77,7 @@ public class AddProcedure extends AppCompatActivity {
                     procedureList.add(procedure);
                 }
 
-                ProcedureList procedureListAdapter = new ProcedureList(AddProcedure.this, procedureList);
+                ProcedureListAdapter procedureListAdapter = new ProcedureListAdapter(AddProcedureActivity.this, procedureList);
                 showProcedureList.setAdapter(procedureListAdapter);
             }
 

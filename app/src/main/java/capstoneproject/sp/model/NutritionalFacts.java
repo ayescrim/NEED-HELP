@@ -1,8 +1,8 @@
-package capstoneproject.sp;
+package capstoneproject.sp.model;
 
 
 
-public class GetFacts {
+public class NutritionalFacts {
     private String nutriServingSize;
     private String nutriCalories;
     private String nutriCaloriesFromFat;
@@ -15,10 +15,10 @@ public class GetFacts {
     private String nutriCalcium;
     private String nutriIron;
 
-    public GetFacts(){
+    public NutritionalFacts(){
     }
 
-    public GetFacts(String nutriServingSize, String nutriCalories, String nutriCaloriesFromFat, String nutriFat, String nutriCarbohydrates, String nutriDietaryFiber, String nutriProtein, String nutriVitaminA, String nutriVitaminC, String nutriCalcium, String nutriIron) {
+    public NutritionalFacts(String nutriServingSize, String nutriCalories, String nutriCaloriesFromFat, String nutriFat, String nutriCarbohydrates, String nutriDietaryFiber, String nutriProtein, String nutriVitaminA, String nutriVitaminC, String nutriCalcium, String nutriIron) {
         this.nutriServingSize = nutriServingSize;
         this.nutriCalories = nutriCalories;
         this.nutriCaloriesFromFat = nutriCaloriesFromFat;

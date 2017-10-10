@@ -1,13 +1,10 @@
-package capstoneproject.sp;
+package capstoneproject.sp.activities;
 
 import android.content.Intent;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -24,7 +21,11 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AddIngredient extends AppCompatActivity {
+import capstoneproject.sp.adapter.IngredientListAdapter;
+import capstoneproject.sp.R;
+import capstoneproject.sp.model.Ingredient;
+
+public class AddIngredientActivity extends AppCompatActivity {
 
     TextView recipeName;
     EditText quantity;
@@ -101,7 +102,7 @@ public class AddIngredient extends AppCompatActivity {
                         ingredientList.add(ingredient);
                     }
 
-                IngredientList ingredientListAdapter = new IngredientList(AddIngredient.this, ingredientList);
+                IngredientListAdapter ingredientListAdapter = new IngredientListAdapter(AddIngredientActivity.this, ingredientList);
                     showIngredientList.setAdapter(ingredientListAdapter);
             }
 
@@ -169,34 +170,34 @@ public class AddIngredient extends AppCompatActivity {
         tempServingSize = servingSize + (quantity * newMeasure);
 
         //calories
-        tempCalories = (tempCalories + ((quantity * measurement) * (GetFacts.getNutriCalories() / 100)));
+        tempCalories = (tempCalories + ((quantity * measurement) * (NutritionalFacts.getNutriCalories() / 100)));
 
         //calories from fat
-        tempCaloriesFromFat = (tempCaloriesFromFat + ((quantity * measurement) * (GetFacts.getNutriCaloriesFromFat() / 100)));
+        tempCaloriesFromFat = (tempCaloriesFromFat + ((quantity * measurement) * (NutritionalFacts.getNutriCaloriesFromFat() / 100)));
 x`
         //total fat
-        tempFat = (tempFat + ((quantity * measurement) * (GetFacts.getNutriFat() / 100)));
+        tempFat = (tempFat + ((quantity * measurement) * (NutritionalFacts.getNutriFat() / 100)));
 
         //total carbohydrate
-        tempCarbohydrates = (tempCarbohydrates + ((quantity * measurement) * (GetFacts.getNutriCarbohydrates() / 100)));
+        tempCarbohydrates = (tempCarbohydrates + ((quantity * measurement) * (NutritionalFacts.getNutriCarbohydrates() / 100)));
 
         //dietary fiber
-        tempDietaryFiber = (tempDietaryFiber + ((quantity * measurement) * (GetFacts.getNutriDietaryFiber() / 100 )));
+        tempDietaryFiber = (tempDietaryFiber + ((quantity * measurement) * (NutritionalFacts.getNutriDietaryFiber() / 100 )));
 
         //protein
-        tempProtein = (tempProtein + ((quantity * measurement) * (GetFacts.getNutriProtein() / 100)));
+        tempProtein = (tempProtein + ((quantity * measurement) * (NutritionalFacts.getNutriProtein() / 100)));
 
         //vitaminA
-        tempVitaminA = (tempVitaminA + ((quantity * measurement) * (GetFacts.getNutriVitaminA() / 100)));
+        tempVitaminA = (tempVitaminA + ((quantity * measurement) * (NutritionalFacts.getNutriVitaminA() / 100)));
 
         //vitaminC
-        tempVitC = (tempVitaminC + ((quantity * measurement) * (GetFacts.getNutriVitaminC() / 100)));
+        tempVitC = (tempVitaminC + ((quantity * measurement) * (NutritionalFacts.getNutriVitaminC() / 100)));
 
         //iron
-        tempIron = (tempIron + ((quantity * measurement) * (GetFacts.getNutriIron() / 100)));
+        tempIron = (tempIron + ((quantity * measurement) * (NutritionalFacts.getNutriIron() / 100)));
 
         //calcium
-        tempCalcium = (tempCalcium + ((quantity * measurement) * (GetFacts.getNutriCalcium() / 100)));
+        tempCalcium = (tempCalcium + ((quantity * measurement) * (NutritionalFacts.getNutriCalcium() / 100)));
     }
 
 

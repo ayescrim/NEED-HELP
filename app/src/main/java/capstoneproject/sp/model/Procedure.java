@@ -1,4 +1,4 @@
-package capstoneproject.sp;
+package capstoneproject.sp.model;
 
 
 public class Procedure {

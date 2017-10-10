@@ -1,4 +1,4 @@
-package capstoneproject.sp;
+package capstoneproject.sp.adapter;
 
 import android.app.Activity;
 import android.support.annotation.NonNull;
@@ -11,16 +11,18 @@ import android.widget.TextView;
 
 import java.util.List;
 
+import capstoneproject.sp.R;
+import capstoneproject.sp.model.Ingredient;
 
 
-public class IngredientList extends ArrayAdapter<Ingredient> {
+public class IngredientListAdapter extends ArrayAdapter<Ingredient> {
 
     private Activity context;
     //list storing all the recipes of a user
     List<Ingredient> ingredientList;
 
     //initializes all the values
-    public IngredientList(Activity context, List<Ingredient> ingredientList){
+    public IngredientListAdapter(Activity context, List<Ingredient> ingredientList){
         super(context, R.layout.ingredient_layout,ingredientList);
         this.context = context;
         this.ingredientList = ingredientList;
