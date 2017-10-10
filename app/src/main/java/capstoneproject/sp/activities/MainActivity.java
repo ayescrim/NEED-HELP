@@ -29,7 +29,7 @@ import capstoneproject.sp.adapter.RecipeListAdapter;
 public class MainActivity extends AppCompatActivity {
 
     //constants
-    public static final String RECIPE_NAME = "recipeName";
+    public static final String RECIPE_NAME = "tvRecipeName";
     public static final String RECIPE_ID = "recipeID";
 
     //declaration of widgets
