@@ -72,7 +72,7 @@ public class AddProcedureActivity extends AppCompatActivity {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 procedureList.clear();
-                for(DataSnapshot procedureSnapshot : dataSnapshot.getChildren()){
+                for (DataSnapshot procedureSnapshot : dataSnapshot.getChildren()) {
                     Procedure procedure = procedureSnapshot.getValue(Procedure.class);
                     procedureList.add(procedure);
                 }
@@ -88,15 +88,15 @@ public class AddProcedureActivity extends AppCompatActivity {
         });
     }
 
-    private void saveProcedure(){
+    private void saveProcedure() {
         String procDesc = process.getText().toString();
-        if(!TextUtils.isEmpty(procDesc)){
+        if (!TextUtils.isEmpty(procDesc)) {
             String id = databaseProcedures.push().getKey();
 
             Procedure procedure = new Procedure(id, procDesc);
 
             databaseProcedures.child(id).setValue(procedure);
-        }else{
+        } else {
             Toast.makeText(this, "Input Fields Required", Toast.LENGTH_LONG).show();
         }
     }

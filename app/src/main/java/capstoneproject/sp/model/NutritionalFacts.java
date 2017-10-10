@@ -1,7 +1,6 @@
 package capstoneproject.sp.model;
 
 
-
 public class NutritionalFacts {
     private String nutriServingSize;
     private String nutriCalories;
@@ -15,7 +14,7 @@ public class NutritionalFacts {
     private String nutriCalcium;
     private String nutriIron;
 
-    public NutritionalFacts(){
+    public NutritionalFacts() {
     }
 
     public NutritionalFacts(String nutriServingSize, String nutriCalories, String nutriCaloriesFromFat, String nutriFat, String nutriCarbohydrates, String nutriDietaryFiber, String nutriProtein, String nutriVitaminA, String nutriVitaminC, String nutriCalcium, String nutriIron) {

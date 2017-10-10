@@ -5,7 +5,7 @@ public class Procedure {
     private String procedureID;
     private String procDesc;
 
-    public Procedure(){
+    public Procedure() {
     }
 
     public Procedure(String procedureID, String procDesc) {
