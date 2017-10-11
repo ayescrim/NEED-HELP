@@ -5,20 +5,23 @@ public class Recipe {
 
     String recipeID;
     String recipeName;
-    String recipeDescription;
+    String recipeCoreIngredient;
+    String recipeCoreIngredientPart;
 
     public Recipe() {
         //used when reading values (importante daw kahit blank sabi ni youtube sensei)
     }
 
     //rightclick -> generate ->  constructor (eto daw magiinitialize nung ewan labo nung russian speaker)
-    public Recipe(String recipeID, String recipeName, String recipeDescription) {
+    public Recipe(String recipeID, String recipeName, String recipeCoreIngredient, String recipeCoreIngredientPart) {
         this.recipeID = recipeID;
         this.recipeName = recipeName;
-        this.recipeDescription = recipeDescription;
+        this.recipeCoreIngredient = recipeCoreIngredient;
+        this.recipeCoreIngredientPart = recipeCoreIngredientPart;
     }
 
     //rightclick -> generate -> getters (used daw while reading the values)
+
     public String getRecipeID() {
         return recipeID;
     }
@@ -27,8 +30,12 @@ public class Recipe {
         return recipeName;
     }
 
-    public String getRecipeDescription() {
-        return recipeDescription;
+    public String getRecipeCoreIngredient() {
+        return recipeCoreIngredient;
+    }
+
+    public String getRecipeCoreIngredientPart() {
+        return recipeCoreIngredientPart;
     }
 }
 

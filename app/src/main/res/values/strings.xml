@@ -5,11 +5,51 @@
         <item>pinch</item>
         <item>tsp</item>
         <item>tbsp</item>
+        <item>gram</item>
+        <item>kilo</item>
     </array>
 
-    <array name="tempfood">
-        <item>salt</item>
-        <item>sugar</item>
+    <array name="coreingredient">
+        <item>pork</item>
+        <item>beef</item>
+        <item>chicken</item>
+    </array>
+
+    <array name="coreingredientChicken">
+        <item>head</item>
+        <item>neck</item>
+        <item>breast</item>
+        <item>tenderloin</item>
+        <item>back</item>
+        <item>wing</item>
+        <item>drumstick</item>
+        <item>thigh</item>
+    </array>
+
+    <array name="coreingredientPork">
+        <item>head</item>
+        <item>cheek</item>
+        <item>colar/neck</item>
+        <item>shoulder/hand</item>
+        <item>loin</item>
+        <item>belly</item>
+        <item>chump</item>
+        <item>leg</item>
+    </array>
+
+    <array name="coreingredientBeef">
+        <item>tounge/cheek</item>
+        <item>neck/clod</item>
+        <item>chuck</item>
+        <item>brisket</item>
+        <item>shin</item>
+        <item>fore ribs</item>
+        <item>sirloin/fillet</item>
+        <item>flank</item>
+        <item>rump</item>
+        <item>silverside/topside</item>
+        <item>thick flank</item>
+        <item>leg</item>
     </array>
 
 </resources>
