@@ -2,10 +2,6 @@ package capstoneproject.sp.mock;
 
 import capstoneproject.sp.model.NutritionalFacts;
 
-/**
- * Created by REGO on 10/10/2017.
- */
-
 public class MockNutritionalFacts {
     //mock data generator
     public static final NutritionalFacts generate() {

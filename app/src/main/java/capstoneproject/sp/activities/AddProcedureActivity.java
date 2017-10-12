@@ -40,6 +40,7 @@ public class AddProcedureActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getSupportActionBar().hide();
         setContentView(R.layout.activity_add_procedure);
 
         recipeName = (TextView) findViewById(R.id.tvRecipeName);
@@ -52,8 +53,8 @@ public class AddProcedureActivity extends AppCompatActivity {
 
         procedureList = new ArrayList<>();
 
-        String id = intent.getStringExtra(MainActivity.RECIPE_ID);
-        String name = intent.getStringExtra(MainActivity.RECIPE_NAME);
+        String id = intent.getStringExtra(AddRecipeActivity.RECIPE_ID);
+        String name = intent.getStringExtra(AddRecipeActivity.RECIPE_NAME);
 
         recipeName.setText(name);
 

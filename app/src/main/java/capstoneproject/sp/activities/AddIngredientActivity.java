@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -58,12 +57,13 @@ public class AddIngredientActivity extends AppCompatActivity implements View.OnC
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getSupportActionBar().hide();
         setContentView(R.layout.activity_add_ingredient);
 
         ingredientList = new ArrayList<>();
         Intent intent = getIntent();
-        id = intent.getStringExtra(MainActivity.RECIPE_ID);
-        name = intent.getStringExtra(MainActivity.RECIPE_NAME);
+        id = intent.getStringExtra(AddRecipeActivity.RECIPE_ID);
+        name = intent.getStringExtra(AddRecipeActivity.RECIPE_NAME);
 
         setupViews();
 /*

@@ -2,10 +2,6 @@ package capstoneproject.sp.utils;
 
 import capstoneproject.sp.model.NutritionalFacts;
 
-/**
- * Created by REGO on 10/10/2017.
- */
-
 public class NutritionUtils {
 
 

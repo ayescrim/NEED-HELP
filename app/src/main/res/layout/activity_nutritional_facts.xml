@@ -116,11 +116,11 @@
         android:layout_height="wrap_content"
         android:text="0g"
         android:layout_marginStart="1dp"
-        tools:layout_constraintTop_creator="1"
+
         android:layout_marginTop="1dp"
         app:layout_constraintTop_toBottomOf="@+id/line2"
         tools:layout_constraintLeft_creator="1"
-        app:layout_constraintLeft_toRightOf="@+id/totalFat" />
+        tools:layout_editor_absoluteX="70dp" />
 
     //calories from fat
 
