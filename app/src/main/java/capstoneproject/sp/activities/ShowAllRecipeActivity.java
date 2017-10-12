@@ -29,6 +29,7 @@ public class ShowAllRecipeActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getSupportActionBar().hide();
         setContentView(R.layout.activity_show_all_recipe);
 
         databaseRecipes = FirebaseDatabase.getInstance().getReference("recipes");

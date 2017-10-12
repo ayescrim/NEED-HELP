@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="capstoneproject.sp">
-
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activities.MainActivity">
+        <activity android:name=".activities.Interlude">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -19,7 +19,17 @@
         <activity android:name=".activities.AddIngredientActivity" />
         <activity android:name=".activities.NutritionalFactsActivity" />
         <activity android:name=".activities.AddProcedureActivity" />
-        <activity android:name=".activities.ShowAllRecipeActivity"></activity>
+        <activity android:name=".activities.ShowAllRecipeActivity" />
+        <activity android:name=".activities.AnimalChoicesActivity" />
+        <activity android:name=".activities.AnimalChoiceBeefActivity" />
+        <activity android:name=".activities.AnimalChoicePorkActivity" />
+        <activity android:name=".activities.AnimalChoiceChickenActivity" />
+        <activity android:name=".activities.MainMenuActivity" />
+        <activity android:name=".activities.LoginScreenActivity" />
+        <activity android:name=".activities.RegistrationActivity" />
+        <activity android:name=".activities.NamePromptActivity" />
+        <activity android:name=".activities.AddRecipeActivity" />
+        <activity android:name=".activities.MainActivity"></activity>
     </application>
 
 </manifest>

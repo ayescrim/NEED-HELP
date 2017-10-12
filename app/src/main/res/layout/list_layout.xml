@@ -28,7 +28,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="0.07"
-            android:text="Core Ingredient:" />
+            android:text="Core Ingredient:"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Small" />
 
         <TextView
             android:id="@+id/textViewCoreIngredient"
@@ -37,7 +38,7 @@
             android:layout_weight="1.26"
             android:textStyle="bold"
             android:text="core ingredient"
-            />
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium" />
     </LinearLayout>
 
     <LinearLayout
@@ -51,7 +52,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="0.42"
-            android:text="Core Ingredient part:" />
+            android:text="Core Ingredient part:"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Small" />
 
         <TextView
             android:id="@+id/textViewCoreIngredientPart"
@@ -59,7 +61,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="4.29"
             android:textStyle="bold"
-            android:text="core ingredient part" />
+            android:text="core ingredient part"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"/>
     </LinearLayout>
 
 </LinearLayout>

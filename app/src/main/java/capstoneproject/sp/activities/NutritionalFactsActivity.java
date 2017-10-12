@@ -31,6 +31,7 @@ public class NutritionalFactsActivity extends AppCompatActivity implements View.
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getSupportActionBar().hide();
         setContentView(R.layout.activity_nutritional_facts);
         initViews();
         btnBack.setOnClickListener(this);
